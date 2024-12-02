@@ -19,3 +19,13 @@ test("isOccupied() returns 'missed shot'", () => {
   expect(B.isShip(3, 2)).toBe(true);
   expect(B.isDamagedShip(1, 1)).toBe(true);
 });
+
+test("isOccupied() returns 'missed shot'", () => {
+  const C = new gameboard();
+
+  C.getBoard();
+  C.array2D[3][2] = "there is a ship";
+
+  expect(C.isMissing(5, 6)).toBe(`missed shot`);
+  expect(C.isMissing(3, 2)).toBe(false);
+});

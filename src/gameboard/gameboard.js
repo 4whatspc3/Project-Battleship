@@ -19,9 +19,13 @@ class gameboard {
   isMissing(coordX, coordY) {
     if (this.array2D[coordX][coordY] === `missed shot`) {
       return true;
-    } else {
-      return false;
     }
+
+    if (this.array2D[coordX][coordY] === `x: ${coordX}, y: ${coordY}`) {
+      return `missed shot`;
+    }
+
+    return false;
   }
 
   isShip(coordX, coordY) {
