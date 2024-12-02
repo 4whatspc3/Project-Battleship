@@ -50,31 +50,40 @@ describe("Test properties and hit() and isSunk() methods", () => {
 describe("Test passCoordShip() method", () => {
   const shipA = new ships(5, "vertical");
 
+  function fakeBoard() {
+    let array2D = [],
+      x = 10,
+      y = 10;
+
+    for (let i = 0; i < x; i++) {
+      array2D[i] = []; // Initialize a new row
+      for (let j = 0; j < y; j++) {
+        array2D[i][j] = `x: ${i}, y: ${j}`; // Assign a value
+      }
+    }
+
+    return array2D;
+  }
+
+  const board = fakeBoard();
+
   test("Given a ship with a vertical direction, 'placement' should also have a property 'direction' with the value 'vertical'", () => {
     expect(shipA.direction).toBe("vertical");
   });
 
   test("Given a gameboard and the initial coordinates of a ship, the 'passCoord' method can place the rest of the ship in the correct positions", () => {
-    function fakeBoard() {
-      let array2D = [],
-        x = 10,
-        y = 10;
-
-      for (let i = 0; i < x; i++) {
-        array2D[i] = []; // Initialize a new row
-        for (let j = 0; j < y; j++) {
-          array2D[i][j] = `x: ${i}, y: ${j}`; // Assign a value
-        }
-      }
-
-      return array2D;
-    }
-
-    const board = fakeBoard();
-
     shipA.passCoordShip(board, 2, 3);
     expect(board[2][3]).toBe("there is a ship");
     expect(board[4][3]).toBe("there is a ship");
     expect(board[6][3]).toBe("there is a ship");
+  });
+
+  test("shipB can't be placed at the given coordinates, because it's already being used", () => {
+    const shipB = new ships(3, "horizontal");
+
+    expect(shipB.passCoordShip(board, 2, 3)).toBe("Already being used");
+    expect(shipB.passCoordShip(board, 4, 4)).not.toBe("Already being used");
+    expect(shipB.passCoordShip(board, 6, 3)).toBe("Already being used");
+    expect(shipB.passCoordShip(board, 8, 3)).not.toBe("Already being used");
   });
 });

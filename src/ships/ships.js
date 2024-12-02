@@ -19,23 +19,49 @@ class ships {
   }
 
   passCoordShip(board, firstX, firstY) {
-    let size = this.length;
+    let size = this.length,
+      coordX = firstX,
+      coordY = firstY;
 
     if (this.direction === "vertical") {
       while (size > 0) {
-        board[firstX][firstY] = `there is a ship`;
+        if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
+          return "Already being used";
+        }
+        coordX++;
 
-        firstX++;
+        size--;
+      }
+
+      size = this.length;
+      coordX = firstX;
+
+      while (size > 0) {
+        board[coordX][coordY] = `there is a ship`;
+
+        coordX++;
 
         size--;
       }
     } else {
       while (size > 0) {
-        board[firstX][firstY] = `there is a ship`;
+        if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
+          return "Already being used";
+        }
+        coordY++;
 
-        firstY++;
+        size--;
+      }
 
-        length--;
+      size = this.length;
+      coordY = firstY;
+
+      while (size > 0) {
+        board[coordX][coordY] = `there is a ship`;
+
+        coordY++;
+
+        size--;
       }
     }
   }
