@@ -4,7 +4,7 @@ class placement {
     this.direction = direction || "horizontal";
   }
 
-  passCoord(yourBoard, firstX, firstY) {
+  passCoordShip(yourBoard, firstX, firstY) {
     if (this.direction === "vertical") {
       while (this.size > 0) {
         yourBoard[firstX][firstY] = `there is a ship`;

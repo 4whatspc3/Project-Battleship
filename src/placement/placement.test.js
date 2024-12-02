@@ -28,7 +28,7 @@ test("Given a gameboard and the initial coordinates of a ship, the 'passCoord' m
 
   const board = fakeBoard();
 
-  shipPlace.passCoord(board, 2, 3);
+  shipPlace.passCoordShip(board, 2, 3);
   expect(board[2][3]).toBe("there is a ship");
   expect(board[4][3]).toBe("there is a ship");
   expect(board[6][3]).toBe("there is a ship");

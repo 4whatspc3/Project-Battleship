@@ -6,7 +6,7 @@ test("getBoard() returns a 2D Array with 10 arrays and 10 rows", () => {
   expect(A.array2D.length === 10).toBe(true);
 });
 
-test("isOccupied() returns 'missed shot'", () => {
+test("The three methods should return 'true'", () => {
   const B = new gameboard();
 
   B.getBoard();
@@ -20,7 +20,7 @@ test("isOccupied() returns 'missed shot'", () => {
   expect(B.isDamagedShip(1, 1)).toBe(true);
 });
 
-test("isOccupied() returns 'missed shot'", () => {
+test("isMissing() returns 'missed shot' if the given coordinates have their default value", () => {
   const C = new gameboard();
 
   C.getBoard();
