@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  border: 1px solid black;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Roboto", system-ui, "Segoe UI", Helvetica, Arial, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.container {
+  height: 800px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+header {
+  height: 200px;
+  display: flex;
+}
+
+.content {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-general {
+  height: 100px;
+  display: flex;
+}
+
+.game {
+  height: 500px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.board-1,
+.board-2 {
+  flex: 1 1 auto;
+  display: flex;
+}
