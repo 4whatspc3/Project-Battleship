@@ -6,6 +6,7 @@ test("check for 'player1' properties", () => {
   expect(player1).toEqual({
     name: "Player 1",
     type: "human",
+    myShips: [],
     numberOfShips: 5,
     status: "alive",
   });
@@ -29,4 +30,10 @@ test("Player 1 has lost all his ships, so his status should be updated to 'lost'
   }
 
   expect(player1.condition()).toBe("lost");
+});
+
+test("Player 1 is able to store 3 ships", () => {
+  player1.myShips.push("shipA", "shipB", "shipC");
+
+  expect(player1.myShips).toEqual(["shipA", "shipB", "shipC"]);
 });
