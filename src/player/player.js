@@ -2,6 +2,7 @@ class player {
   constructor(type, name) {
     this.name = name;
     this.type = type || "computer";
+    this.myBoard = [];
     this.myShips = [];
     this.numberOfShips = 5;
     this.status = "alive";
