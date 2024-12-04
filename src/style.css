@@ -24,6 +24,12 @@ body {
 header {
   height: 200px;
   display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header > p {
+  font-size: 50px;
 }
 
 .content {
