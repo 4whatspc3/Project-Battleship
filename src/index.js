@@ -1,5 +1,5 @@
 import "./style.css";
 
-import startGame from "./DOM_components/startGame";
+import pressStart from "./DOM_components/pressStart";
 
-startGame();
+pressStart();
