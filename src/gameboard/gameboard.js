@@ -16,6 +16,28 @@ class gameboard {
     return this.array2D;
   }
 
+  boardDom(num) {
+    const grid = document.querySelector(`.board-${num} div`);
+
+    for (let i = 0; i < 10; i++) {
+      const row = document.createElement("div");
+
+      row.setAttribute("data-row", `${i}`);
+
+      for (let j = 0; j < 10; j++) {
+        const coord = document.createElement("div");
+
+        coord.setAttribute("data-coord", `x: ${i}, y: ${j}`);
+
+        row.append(coord);
+      }
+
+      grid.append(row);
+    }
+
+    return grid;
+  }
+
   isMissing(coordX, coordY) {
     if (this.array2D[coordX][coordY] === `missed shot`) {
       return true;

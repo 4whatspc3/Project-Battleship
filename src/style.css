@@ -47,7 +47,7 @@ header > p {
 .game {
   height: 400px;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .start-reset {
@@ -60,6 +60,23 @@ header > p {
 
 .board-1,
 .board-2 {
-  flex: 1 1 auto;
+  height: 400px;
+  width: 400px;
   display: flex;
+}
+
+.board-1 > div,
+.board-2 > div {
+  padding: 10px;
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+}
+
+[data-row],
+[data-coord] {
+  display: flex;
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  flex-direction: column;
 }
