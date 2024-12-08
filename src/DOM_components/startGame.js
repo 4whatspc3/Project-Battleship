@@ -17,6 +17,8 @@ const startGame = () => {
     board1.boardDom(1);
 
     board2.boardDom(2);
+
+    document.querySelector(".start").disabled = true;
   });
 };
 
