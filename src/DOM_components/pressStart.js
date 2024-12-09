@@ -4,6 +4,8 @@ import strategia from "./strategia";
 
 import showInfoPlayer from "./showInfoPlayer";
 
+import directionDOM from "./btnDirection";
+
 const pressStart = () => {
   const start = document.querySelector(".start");
 
@@ -17,6 +19,8 @@ const pressStart = () => {
     infoGeneral.textContent = "The game has started";
 
     showInfoPlayer(1);
+
+    directionDOM();
 
     document.querySelector(".start").disabled = true;
   });
