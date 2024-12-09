@@ -4,7 +4,7 @@ import strategia from "./strategia";
 
 import showInfoPlayer from "./showInfoPlayer";
 
-import directionDOM from "./btnDirection";
+import btnDirection from "./btnDirection";
 
 const pressStart = () => {
   const start = document.querySelector(".start");
@@ -20,7 +20,7 @@ const pressStart = () => {
 
     showInfoPlayer(1);
 
-    directionDOM();
+    btnDirection();
 
     document.querySelector(".start").disabled = true;
   });

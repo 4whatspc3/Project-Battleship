@@ -1,4 +1,4 @@
-const directionDOM = () => {
+const btnDirection = () => {
   const directionContainer = document.querySelector(
     ".board-1 > div:first-of-type",
   );
@@ -22,4 +22,4 @@ const directionDOM = () => {
   });
 };
 
-export default directionDOM;
+export default btnDirection;
