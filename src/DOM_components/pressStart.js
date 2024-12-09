@@ -2,6 +2,8 @@ import startGame from "./startGame";
 
 import strategia from "./strategia";
 
+import showInfoPlayer from "./showInfoPlayer";
+
 const pressStart = () => {
   const start = document.querySelector(".start");
 
@@ -13,6 +15,8 @@ const pressStart = () => {
     strategia();
 
     infoGeneral.textContent = "The game has started";
+
+    showInfoPlayer(1);
 
     document.querySelector(".start").disabled = true;
   });
