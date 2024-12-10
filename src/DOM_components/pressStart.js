@@ -14,13 +14,13 @@ const pressStart = () => {
   start.addEventListener("click", () => {
     startGame();
 
-    strategia();
-
     infoGeneral.textContent = "The game has started";
 
     showInfoPlayer(1);
 
     btnDirection();
+
+    strategia();
 
     document.querySelector(".start").disabled = true;
   });
