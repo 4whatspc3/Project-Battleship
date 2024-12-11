@@ -20,19 +20,19 @@ class gameboard {
     const grid = document.querySelector(`.board-${num} > div:last-of-type`);
 
     for (let i = 0; i < 10; i++) {
-      const row = document.createElement("div");
+      const x = document.createElement("div");
 
-      row.setAttribute("data-row", `${i}`);
+      x.setAttribute("data-x", `${i}`);
 
       for (let j = 0; j < 10; j++) {
-        const coord = document.createElement("div");
+        const y = document.createElement("div");
 
-        coord.setAttribute("data-coord", `x: ${i}, y: ${j}`);
+        y.setAttribute("data-y", `${j}`);
 
-        row.append(coord);
+        x.append(y);
       }
 
-      grid.append(row);
+      grid.append(x);
     }
 
     return grid;

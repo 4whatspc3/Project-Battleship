@@ -85,14 +85,14 @@ header > p {
   gap: 4px;
 }
 
-[data-row],
-[data-coord] {
+[data-x],
+[data-y] {
   display: flex;
   flex: 1 1 auto;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-[data-coord]:hover {
+[data-y]:hover {
   background-color: hsl(0, 0%, 70%);
 }
