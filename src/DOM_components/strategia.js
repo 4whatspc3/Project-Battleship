@@ -1,44 +1,46 @@
 import ships from "../ships/ships";
 
-const strategia = () => {
+const strategia = (playerBoard) => {
   let turn = 0;
 
-  const squareCoords = document.querySelectorAll(".board-1 [data-coord]");
+  const squareCoords = document.querySelectorAll(".board-1 [data-x]");
 
   squareCoords.forEach((square) => {
     square.addEventListener("click", (e) => {
-      console.log(`${e.target.dataset.coord}`);
+      const x = e.target.parentNode.dataset.x;
+      const y = e.target.dataset.y;
 
-      getShips(turn);
+      console.log(`x: ${x}, y: ${y}`);
+      getShips(turn, playerBoard, x, y);
 
       turn++;
     });
   });
 };
 
-const getShips = (counter) => {
+const getShips = (counter, playerBoard, x, y) => {
   const btn = document.querySelector(".board-1 button");
 
   switch (counter) {
     case 0:
       const carrier = new ships(5, btn.className);
-      console.log(carrier.direction);
+      carrier.passCoordShip(playerBoard, x, y);
       break;
     case 1:
       const battleship = new ships(4, btn.className);
-      console.log(battleship.direction);
+      battleship.passCoordShip(playerBoard, x, y);
       break;
     case 2:
       const destroyer = new ships(3, btn.className);
-      console.log(destroyer.direction);
+      destroyer.passCoordShip(playerBoard, x, y);
       break;
     case 3:
       const submarine = new ships(3, btn.className);
-      console.log(submarine.direction);
+      submarine.passCoordShip(playerBoard, x, y);
       break;
     case 4:
       const patrolBoat = new ships(2, btn.className);
-      console.log(patrolBoat.direction);
+      patrolBoat.passCoordShip(playerBoard, x, y);
       break;
     default:
       console.log(counter);

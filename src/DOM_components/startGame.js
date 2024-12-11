@@ -2,6 +2,8 @@ import gameboard from "../gameboard/gameboard";
 
 import player from "../player/player";
 
+import strategia from "./strategia";
+
 const startGame = () => {
   console.log("I'm working right now");
   const player1 = new player("Human", "Player 1");
@@ -19,6 +21,8 @@ const startGame = () => {
   board1.boardDom(1);
 
   board2.boardDom(2);
+
+  strategia(board1.array2D);
 };
 
 export default startGame;

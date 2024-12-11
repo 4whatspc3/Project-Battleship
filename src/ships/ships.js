@@ -28,26 +28,6 @@ class ships {
         if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
           return "Already being used";
         }
-        coordX++;
-
-        size--;
-      }
-
-      size = this.length;
-      coordX = firstX;
-
-      while (size > 0) {
-        board[coordX][coordY] = `there is a ship`;
-
-        coordX++;
-
-        size--;
-      }
-    } else {
-      while (size > 0) {
-        if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
-          return "Already being used";
-        }
         coordY++;
 
         size--;
@@ -60,6 +40,26 @@ class ships {
         board[coordX][coordY] = `there is a ship`;
 
         coordY++;
+
+        size--;
+      }
+    } else {
+      while (size > 0) {
+        if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
+          return "Already being used";
+        }
+        coordX++;
+
+        size--;
+      }
+
+      size = this.length;
+      coordX = firstX;
+
+      while (size > 0) {
+        board[coordX][coordY] = `there is a ship`;
+
+        coordX++;
 
         size--;
       }

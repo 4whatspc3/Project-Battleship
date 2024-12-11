@@ -1,7 +1,5 @@
 import startGame from "./startGame";
 
-import strategia from "./strategia";
-
 import showInfoPlayer from "./showInfoPlayer";
 
 import btnDirection from "./btnDirection";
@@ -19,8 +17,6 @@ const pressStart = () => {
     showInfoPlayer(1);
 
     btnDirection();
-
-    strategia();
 
     document.querySelector(".start").disabled = true;
   });
