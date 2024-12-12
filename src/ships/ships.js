@@ -23,9 +23,25 @@ class ships {
       coordX = firstX,
       coordY = firstY;
 
+    while (size > 0) {
+      if (
+        board[coordX] === board[9] ||
+        board[coordX][coordY] === board[coordX][9]
+      ) {
+        return "Overextends the gameboard";
+      }
+
+      size--;
+    }
+
+    size = this.length;
+
     if (this.direction === "vertical") {
       while (size > 0) {
-        if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
+        if (
+          board[coordX][coordY] === undefined ||
+          board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`
+        ) {
           return "Already being used";
         }
         coordY++;
@@ -45,9 +61,13 @@ class ships {
       }
     } else {
       while (size > 0) {
-        if (board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
+        if (
+          board[coordX] === undefined ||
+          board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`
+        ) {
           return "Already being used";
         }
+
         coordX++;
 
         size--;
