@@ -65,6 +65,28 @@ class ships {
       }
     }
   }
+
+  passCoordDOM(firstX, firstY) {
+    let size = this.length,
+      coordX = firstX,
+      coordY = firstY;
+
+    for (let i = 0; i < size; i++) {
+      const horizontal = document.querySelector(
+        `.board-1 [data-x="${coordX}"]`,
+      );
+
+      const vertical = horizontal.querySelector(`[data-y="${coordY}"]`);
+
+      vertical.className = "shipPlaced";
+
+      if (this.direction === "vertical") {
+        coordY++;
+      } else {
+        coordX++;
+      }
+    }
+  }
 }
 
 export default ships;

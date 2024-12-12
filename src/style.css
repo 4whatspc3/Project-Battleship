@@ -96,3 +96,7 @@ header > p {
 [data-y]:hover {
   background-color: hsl(0, 0%, 70%);
 }
+
+.shipPlaced {
+  background-color: orange;
+}
