@@ -1,5 +1,7 @@
 import ships from "../ships/ships";
 
+import showInfoPlayer from "./showInfoPlayer";
+
 const strategia = (playerBoard) => {
   let turn = 0;
 
@@ -14,6 +16,7 @@ const strategia = (playerBoard) => {
       getShips(turn, playerBoard, x, y);
 
       turn++;
+      showInfoPlayer(turn);
     });
   });
 };

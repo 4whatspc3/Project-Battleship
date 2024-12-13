@@ -14,7 +14,7 @@ const pressStart = () => {
 
     infoGeneral.textContent = "The game has started";
 
-    showInfoPlayer(1);
+    showInfoPlayer();
 
     btnDirection();
 
