@@ -96,6 +96,31 @@ class ships {
         `.board-1 [data-x="${coordX}"]`,
       );
 
+      if (horizontal === null) {
+        return "Overextends the gameboard";
+      }
+
+      const vertical = horizontal.querySelector(`[data-y="${coordY}"]`);
+
+      if (vertical === null) {
+        return "Overextends the gameboard";
+      }
+
+      if (this.direction === "vertical") {
+        coordY++;
+      } else {
+        coordX++;
+      }
+    }
+
+    coordX = firstX;
+    coordY = firstY;
+
+    for (let i = 0; i < size; i++) {
+      const horizontal = document.querySelector(
+        `.board-1 [data-x="${coordX}"]`,
+      );
+
       const vertical = horizontal.querySelector(`[data-y="${coordY}"]`);
 
       vertical.className = "shipPlaced";
