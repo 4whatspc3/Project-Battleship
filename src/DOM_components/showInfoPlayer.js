@@ -7,7 +7,7 @@ function showInfoPlayer(counter) {
 
       setTimeout(() => {
         infoPlayer.textContent = "Place your Carrier, it takes 5 squares";
-      }, 3000);
+      }, 2000);
       break;
     case 1:
       setTimeout(() => {
@@ -30,7 +30,9 @@ function showInfoPlayer(counter) {
       }, 1000);
       break;
     default:
-      console.log(counter);
+      setTimeout(() => {
+        infoPlayer.textContent = "It's time to attack the enemy!";
+      }, 1000);
   }
 
   setInterval(function () {

@@ -16,6 +16,7 @@ const strategia = (playerBoard) => {
       getShips(turn, playerBoard, x, y);
 
       turn++;
+
       showInfoPlayer(turn);
     });
   });
