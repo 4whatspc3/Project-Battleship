@@ -4,6 +4,8 @@ import player from "../player/player";
 
 import strategia from "./strategia";
 
+import strategiaComputer from "./strategiaComputer";
+
 const startGame = () => {
   console.log("I'm working right now");
   const player1 = new player("Human", "Player 1");
@@ -21,6 +23,8 @@ const startGame = () => {
   board1.boardDom(1);
 
   board2.boardDom(2);
+
+  strategiaComputer(board2.array2D);
 
   strategia(board1.array2D);
 };
