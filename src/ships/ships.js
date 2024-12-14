@@ -85,12 +85,16 @@ class ships {
 
       if (horizontal === null) {
         return "Overextends the gameboard";
+      } else if (horizontal.className === "shipPlaced") {
+        return "Already being used";
       }
 
       const vertical = horizontal.querySelector(`[data-y="${coordY}"]`);
 
       if (vertical === null) {
         return "Overextends the gameboard";
+      } else if (vertical.className === "shipPlaced") {
+        return "Already being used";
       }
 
       if (this.direction === "vertical") {
