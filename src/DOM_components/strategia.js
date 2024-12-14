@@ -3,6 +3,8 @@ import ships from "../ships/ships";
 import showInfoPlayer from "./showInfoPlayer";
 
 const strategia = (playerBoard) => {
+  let boardCopy = JSON.parse(JSON.stringify(playerBoard));
+
   let turn = 0;
 
   const squareCoords = document.querySelectorAll(".board-1 [data-x]");
@@ -15,9 +17,13 @@ const strategia = (playerBoard) => {
       console.log(`x: ${x}, y: ${y}`);
       getShips(turn, playerBoard, x, y);
 
-      turn++;
+      if (JSON.stringify(playerBoard) !== JSON.stringify(boardCopy)) {
+        boardCopy = JSON.parse(JSON.stringify(playerBoard));
 
-      showInfoPlayer(turn);
+        turn++;
+
+        showInfoPlayer(turn);
+      }
     });
   });
 };
