@@ -1,5 +1,6 @@
 class ships {
-  constructor(length, direction) {
+  constructor(name, length, direction) {
+    this.name = name;
     this.length = length;
     this.hits = 0;
     this.sunk = false;
@@ -40,7 +41,7 @@ class ships {
       coordY = firstY;
 
       while (size > 0) {
-        board[coordX][coordY] = `there is a ship`;
+        board[coordX][coordY] = this.name;
 
         coordY++;
 
@@ -64,7 +65,7 @@ class ships {
       coordX = firstX;
 
       while (size > 0) {
-        board[coordX][coordY] = `there is a ship`;
+        board[coordX][coordY] = this.name;
 
         coordX++;
 

@@ -12,27 +12,28 @@ const strategiaComputer = (computerBoard) => {
 
     switch (turn) {
       case 0:
-        const carrier = new ships(5, direction);
+        const carrier = new ships("carrier", 5, direction);
         carrier.passCoordShip(computerBoard, x, y);
         break;
       case 1:
-        const battleship = new ships(4, direction);
+        const battleship = new ships("battleship", 4, direction);
         battleship.passCoordShip(computerBoard, x, y);
         break;
       case 2:
-        const destroyer = new ships(3, direction);
+        const destroyer = new ships("destroyer", 3, direction);
         destroyer.passCoordShip(computerBoard, x, y);
         break;
       case 3:
-        const submarine = new ships(3, direction);
+        const submarine = new ships("submarine", 3, direction);
         submarine.passCoordShip(computerBoard, x, y);
         break;
       case 4:
-        const patrolBoat = new ships(2, direction);
+        const patrolBoat = new ships("patrol boat", 2, direction);
         patrolBoat.passCoordShip(computerBoard, x, y);
+        console.log(computerBoard);
         break;
       default:
-        console.log(counter);
+        console.log(computerBoard);
     }
 
     if (JSON.stringify(computerBoard) !== JSON.stringify(boardCopy)) {
