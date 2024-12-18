@@ -24,9 +24,9 @@ const startGame = () => {
 
   board2.boardDom(2);
 
-  strategiaComputer(board2.array2D);
+  strategiaComputer(player2, board2.array2D);
 
-  strategia(board1.array2D);
+  strategia(player1, board1.array2D);
 };
 
 export default startGame;

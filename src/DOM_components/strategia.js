@@ -2,7 +2,7 @@ import getShips from "./getShips";
 
 import showInfoPlayer from "./showInfoPlayer";
 
-const strategia = (playerBoard) => {
+const strategia = (playerOne, playerBoard) => {
   let boardCopy = JSON.parse(JSON.stringify(playerBoard));
 
   let turn = 0;
@@ -14,7 +14,9 @@ const strategia = (playerBoard) => {
       const x = e.target.parentNode.dataset.x;
       const y = e.target.dataset.y;
 
-      getShips(turn, playerBoard, x, y);
+      getShips(playerOne, turn, playerBoard, x, y);
+
+      console.log(playerOne.myShips);
 
       if (JSON.stringify(playerBoard) !== JSON.stringify(boardCopy)) {
         boardCopy = JSON.parse(JSON.stringify(playerBoard));

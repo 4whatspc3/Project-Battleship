@@ -1,6 +1,6 @@
 import ships from "../ships/ships";
 
-const strategiaComputer = (computerBoard) => {
+const strategiaComputer = (playerTwo, computerBoard) => {
   let boardCopy = JSON.parse(JSON.stringify(computerBoard));
 
   let turn = 0;
@@ -14,22 +14,31 @@ const strategiaComputer = (computerBoard) => {
       case 0:
         const carrier = new ships("carrier", 5, direction);
         carrier.passCoordShip(computerBoard, x, y);
+        playerTwo.myShips[0] = carrier;
         break;
       case 1:
         const battleship = new ships("battleship", 4, direction);
         battleship.passCoordShip(computerBoard, x, y);
+        playerTwo.myShips[1] = battleship;
+
         break;
       case 2:
         const destroyer = new ships("destroyer", 3, direction);
         destroyer.passCoordShip(computerBoard, x, y);
+        playerTwo.myShips[2] = destroyer;
+
         break;
       case 3:
         const submarine = new ships("submarine", 3, direction);
         submarine.passCoordShip(computerBoard, x, y);
+        playerTwo.myShips[3] = submarine;
+
         break;
       case 4:
         const patrolBoat = new ships("patrol boat", 2, direction);
         patrolBoat.passCoordShip(computerBoard, x, y);
+        playerTwo.myShips[4] = patrolBoat;
+
         console.log(computerBoard);
         break;
       default:
