@@ -1,4 +1,4 @@
-function showInfoPlayer(counter) {
+function showInfo(counter) {
   const infoPlayer = document.querySelector(`.info-1`);
 
   switch (counter) {
@@ -40,4 +40,4 @@ function showInfoPlayer(counter) {
   }, 1000);
 }
 
-export default showInfoPlayer;
+export default showInfo;

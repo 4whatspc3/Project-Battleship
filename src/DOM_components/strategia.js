@@ -1,6 +1,6 @@
 import getShips from "./getShips";
 
-import showInfoPlayer from "./showInfoPlayer";
+import showInfo from "./showInfo";
 
 const strategia = (playerOne, playerBoard) => {
   let boardCopy = JSON.parse(JSON.stringify(playerBoard));
@@ -23,7 +23,7 @@ const strategia = (playerOne, playerBoard) => {
 
         turn++;
 
-        showInfoPlayer(turn);
+        showInfo(turn);
       }
     });
   });

@@ -1,6 +1,6 @@
 import startGame from "./startGame";
 
-import showInfoPlayer from "./showInfoPlayer";
+import showInfo from "./showInfo";
 
 import btnDirection from "./btnDirection";
 
@@ -14,7 +14,7 @@ const pressStart = () => {
 
     infoGeneral.textContent = "The game has started";
 
-    showInfoPlayer();
+    showInfo();
 
     btnDirection();
 
