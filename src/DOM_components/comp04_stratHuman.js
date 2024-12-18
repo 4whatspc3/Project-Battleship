@@ -1,6 +1,6 @@
-import getShips from "./getShips";
+import getShips from "./comp05_getShips";
 
-import showInfo from "./showInfo";
+import showInfo from "./DOM_subcomponents/showInfo";
 
 const strategia = (playerOne, playerBoard) => {
   let boardCopy = JSON.parse(JSON.stringify(playerBoard));

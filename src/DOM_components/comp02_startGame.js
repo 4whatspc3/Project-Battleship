@@ -2,9 +2,9 @@ import gameboard from "../gameboard/gameboard";
 
 import player from "../player/player";
 
-import strategia from "./strategia";
+import strategia from "./comp04_stratHuman";
 
-import strategiaComputer from "./strategiaComputer";
+import strategiaComputer from "./comp03_stratPC";
 
 const startGame = () => {
   console.log("I'm working right now");

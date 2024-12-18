@@ -1,8 +1,8 @@
-import startGame from "./startGame";
+import startGame from "./comp02_startGame";
 
-import showInfo from "./showInfo";
+import showInfo from "./DOM_subcomponents/showInfo";
 
-import btnDirection from "./btnDirection";
+import btnDirection from "./DOM_subcomponents/btnDirection";
 
 const pressStart = () => {
   const start = document.querySelector(".start");
