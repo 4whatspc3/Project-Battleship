@@ -6,6 +6,8 @@ import strategia from "./comp04_stratHuman";
 
 import strategiaComputer from "./comp03_stratPC";
 
+import attackEnemy from "./attackEnemy";
+
 const startGame = () => {
   console.log("I'm working right now");
   const player1 = new player("Human", "Player 1");
@@ -27,6 +29,8 @@ const startGame = () => {
   strategiaComputer(player2, board2.array2D);
 
   strategia(player1, board1.array2D);
+
+  attackEnemy(board2.array2D);
 };
 
 export default startGame;
