@@ -30,7 +30,7 @@ const startGame = () => {
 
   strategia(player1, board1.array2D);
 
-  attackEnemy(board2.array2D);
+  attackEnemy(player2.myShips, board2);
 };
 
 export default startGame;

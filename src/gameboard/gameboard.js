@@ -51,7 +51,7 @@ class gameboard {
   }
 
   isShip(coordX, coordY) {
-    if (this.array2D[coordX][coordY] === `there is a ship`) {
+    if (this.array2D[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
       return true;
     } else {
       return false;

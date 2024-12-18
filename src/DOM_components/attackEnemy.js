@@ -1,6 +1,4 @@
-const attackEnemy = (enemyBoard) => {
-  console.log("oi");
-
+const attackEnemy = (enemyShips, enemyBoard) => {
   const squareCoords = document.querySelectorAll(".board-2 [data-x]");
 
   squareCoords.forEach((square) => {
@@ -8,7 +6,14 @@ const attackEnemy = (enemyBoard) => {
       const x = e.target.parentNode.dataset.x;
       const y = e.target.dataset.y;
 
-      console.log(enemyBoard[x][y]);
+      const result = enemyShips.findIndex(
+        (obj) => obj.name === enemyBoard.array2D[x][y],
+      );
+
+      if (enemyBoard.isShip(x, y)) {
+        enemyShips[result].hit();
+        console.log(enemyShips[result]);
+      }
     });
   });
 };
