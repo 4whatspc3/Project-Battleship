@@ -29,6 +29,10 @@ class gameboard {
 
         y.setAttribute("data-y", `${j}`);
 
+        if (num === 2) {
+          y.setAttribute("data-clicked", "false");
+        }
+
         x.append(y);
       }
 
