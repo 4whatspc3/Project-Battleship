@@ -42,28 +42,8 @@ class gameboard {
     return grid;
   }
 
-  isMissing(coordX, coordY) {
-    if (this.array2D[coordX][coordY] === `missed shot`) {
-      return true;
-    }
-
-    if (this.array2D[coordX][coordY] === `x: ${coordX}, y: ${coordY}`) {
-      return `missed shot`;
-    }
-
-    return false;
-  }
-
   isShip(coordX, coordY) {
     if (this.array2D[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`) {
-      return true;
-    } else {
-      return false;
-    }
-  }
-
-  isDamagedShip(coordX, coordY) {
-    if (this.array2D[coordX][coordY] === `damaged ship`) {
       return true;
     } else {
       return false;
