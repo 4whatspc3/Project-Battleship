@@ -30,7 +30,7 @@ class gameboard {
         y.setAttribute("data-y", `${j}`);
 
         if (num === 2) {
-          y.setAttribute("data-clicked", "false");
+          y.setAttribute("data-clicked", "true");
         }
 
         x.append(y);
@@ -40,6 +40,20 @@ class gameboard {
     }
 
     return grid;
+  }
+
+  boardState(state) {
+    const grid = document.querySelectorAll(`.board-2 [data-y]`);
+
+    if (state === "unlock")
+      grid.forEach((square) => {
+        square.dataset.clicked = "false";
+      });
+
+    if (state === "lock")
+      grid.forEach((square) => {
+        square.dataset.clicked = "true";
+      });
   }
 
   isShip(coordX, coordY) {
