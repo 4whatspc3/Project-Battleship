@@ -52,9 +52,7 @@ class gameboard {
       });
 
       this.state = "false";
-    }
-
-    if (state === "false") {
+    } else {
       grid.forEach((square) => {
         square.dataset.clicked = "true";
       });
