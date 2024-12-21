@@ -3,6 +3,7 @@ class gameboard {
     this.x = 10;
     this.y = 10;
     this.array2D = [];
+    this.state = "true";
   }
 
   getBoard() {
@@ -30,7 +31,7 @@ class gameboard {
         y.setAttribute("data-y", `${j}`);
 
         if (num === 2) {
-          y.setAttribute("data-clicked", "true");
+          y.setAttribute("data-clicked", this.state);
         }
 
         x.append(y);
@@ -42,18 +43,24 @@ class gameboard {
     return grid;
   }
 
-  boardState(state) {
+  changeBoardState() {
     const grid = document.querySelectorAll(`.board-2 [data-y]`);
 
-    if (state === "unlock")
+    if (this.state === "true") {
       grid.forEach((square) => {
         square.dataset.clicked = "false";
       });
 
-    if (state === "lock")
+      this.state = "false";
+    }
+
+    if (state === "false") {
       grid.forEach((square) => {
         square.dataset.clicked = "true";
       });
+
+      this.state = "true";
+    }
   }
 
   isShip(coordX, coordY) {
