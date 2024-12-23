@@ -46,19 +46,9 @@ class gameboard {
   changeBoardState() {
     const grid = document.querySelectorAll(`.board-2 [data-y]`);
 
-    if (this.state === "true") {
-      grid.forEach((square) => {
-        square.dataset.clicked = "false";
-      });
-
-      this.state = "false";
-    } else {
-      grid.forEach((square) => {
-        square.dataset.clicked = "true";
-      });
-
-      this.state = "true";
-    }
+    grid.forEach((square) => {
+      square.dataset.clicked = "false";
+    });
   }
 
   isShip(coordX, coordY) {
