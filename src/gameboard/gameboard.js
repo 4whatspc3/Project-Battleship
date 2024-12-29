@@ -3,7 +3,7 @@ class gameboard {
     this.x = 10;
     this.y = 10;
     this.array2D = [];
-    this.state = "true";
+    this.selectedCoords = new Set();
   }
 
   getBoard() {
@@ -30,9 +30,7 @@ class gameboard {
 
         y.setAttribute("data-y", `${j}`);
 
-        if (num === 2) {
-          y.setAttribute("data-clicked", this.state);
-        }
+        y.setAttribute("data-clicked", "true");
 
         x.append(y);
       }
@@ -44,7 +42,7 @@ class gameboard {
   }
 
   changeBoardState() {
-    const grid = document.querySelectorAll(`.board-2 [data-y]`);
+    const grid = document.querySelectorAll(`[data-y]`);
 
     grid.forEach((square) => {
       square.dataset.clicked = "false";
@@ -59,33 +57,16 @@ class gameboard {
     }
   }
 
-  receiveAttack(enemyShips) {
-    const squareCoords = document.querySelectorAll(".board-2 [data-x]");
+  receiveAttack(myShips, x, y, e) {
+    const result = myShips.findIndex((obj) => obj.name === this.array2D[x][y]);
 
-    squareCoords.forEach((square) => {
-      square.addEventListener("click", (e) => {
-        if (e.target.dataset.clicked === "false") {
-          e.target.style.backgroundColor = "grey";
+    if (this.isShip(x, y)) {
+      myShips[result].hit();
 
-          const x = e.target.parentNode.dataset.x;
-          const y = e.target.dataset.y;
+      e.target.style.backgroundColor = "orange";
 
-          const result = enemyShips.findIndex(
-            (obj) => obj.name === this.array2D[x][y],
-          );
-
-          if (this.isShip(x, y)) {
-            enemyShips[result].hit();
-
-            e.target.style.backgroundColor = "orange";
-
-            console.log(enemyShips[result]);
-          }
-
-          e.target.dataset.clicked = "true";
-        }
-      });
-    });
+      console.log(myShips[result]);
+    }
   }
 }
 

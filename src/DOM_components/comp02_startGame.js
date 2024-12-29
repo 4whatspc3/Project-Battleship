@@ -6,6 +6,8 @@ import strategia from "./comp04_stratHuman";
 
 import strategiaComputer from "./comp03_stratPC";
 
+import battle from "./comp06_battle";
+
 const startGame = () => {
   console.log("I'm working right now");
   const player1 = new player("Human", "Player 1");
@@ -28,7 +30,7 @@ const startGame = () => {
 
   strategia(player1, board1, board2);
 
-  board2.receiveAttack(player2.myShips);
+  battle(board2, player2.myShips, board1, player1.myShips);
 };
 
 export default startGame;
