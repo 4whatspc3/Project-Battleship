@@ -26,9 +26,9 @@ const strategia = (playerOne, playerBoard, computerBoard) => {
         showInfo(turn);
 
         if (turn === 5) {
-          computerBoard.changeBoardState();
+          computerBoard.changeBoardState(false);
 
-          playerBoard.changeBoardState();
+          playerBoard.changeBoardState(false);
         }
       }
     });

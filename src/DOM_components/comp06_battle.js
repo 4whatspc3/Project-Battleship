@@ -1,3 +1,5 @@
+import infoGeneral from "./DOM_subcomponents/infoGeneral";
+
 const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
   const squareCoords = document.querySelectorAll(".board-2 [data-x]");
 
@@ -26,6 +28,14 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
           enemyPlayer.checkShips(shipState);
 
           enemyPlayer.condition();
+
+          if (enemyPlayer.status === "lost") {
+            infoGeneral(1);
+
+            myBoard.changeBoardState(true);
+
+            enemyBoard.changeBoardState(true);
+          }
         }
       }
 
@@ -66,6 +76,14 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
             myPlayer.checkShips(shipState);
 
             myPlayer.condition();
+
+            if (myPlayer.status === "lost") {
+              infoGeneral(2);
+
+              myBoard.changeBoardState(true);
+
+              enemyBoard.changeBoardState(true);
+            }
           }
         }
       }

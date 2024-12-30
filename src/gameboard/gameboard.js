@@ -41,11 +41,11 @@ class gameboard {
     return grid;
   }
 
-  changeBoardState() {
+  changeBoardState(state) {
     const grid = document.querySelectorAll(`[data-y]`);
 
     grid.forEach((square) => {
-      square.dataset.clicked = "false";
+      square.dataset.clicked = `${state}`;
     });
   }
 
