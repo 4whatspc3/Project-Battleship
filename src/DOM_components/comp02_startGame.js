@@ -30,7 +30,7 @@ const startGame = () => {
 
   strategia(player1, board1, board2);
 
-  battle(board2, player2.myShips, board1, player1.myShips);
+  battle(player1, board1, player2, board2);
 };
 
 export default startGame;

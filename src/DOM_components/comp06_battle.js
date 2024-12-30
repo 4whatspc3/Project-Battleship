@@ -1,19 +1,35 @@
-const battle = (myBoard, myShips, enemyBoard, enemyShips) => {
+const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
   const squareCoords = document.querySelectorAll(".board-2 [data-x]");
 
   squareCoords.forEach((square) => {
     square.addEventListener("click", (e) => {
+      //////player 2 receive attack///////
       const x = e.target.parentNode.dataset.x;
       const y = e.target.dataset.y;
 
       if (e.target.dataset.clicked === "false") {
         e.target.style.backgroundColor = "grey";
 
-        myBoard.receiveAttack(myShips, x, y, e);
-
         e.target.dataset.clicked = "true";
+
+        const result = enemyPlayer.myShips.findIndex(
+          (obj) => obj.name === enemyBoard.array2D[x][y],
+        );
+
+        if (enemyBoard.isShip(x, y)) {
+          enemyPlayer.myShips[result].hit();
+
+          e.target.style.backgroundColor = "green";
+
+          const shipState = enemyPlayer.myShips[result].isSunk();
+
+          enemyPlayer.checkShips(shipState);
+
+          enemyPlayer.condition();
+        }
       }
 
+      /////player 1 Receive attack//////////
       const divs = document.querySelectorAll(".board-1 [data-y]");
 
       let xL, yL, num;
@@ -22,12 +38,12 @@ const battle = (myBoard, myShips, enemyBoard, enemyShips) => {
         xL = getRandomInt(10);
         yL = getRandomInt(10);
         num = xL * 10 + yL;
-      } while (enemyBoard.selectedCoords.has(num));
+      } while (myBoard.selectedCoords.has(num));
 
       const div = divs[num];
 
       if (div) {
-        enemyBoard.selectedCoords.add(num);
+        myBoard.selectedCoords.add(num);
 
         console.log(`X: ${x}, Y: ${y}, Index: ${num}`);
 
@@ -36,16 +52,20 @@ const battle = (myBoard, myShips, enemyBoard, enemyShips) => {
 
           div.dataset.clicked = "true";
 
-          const result = myShips.findIndex(
-            (obj) => obj.name === enemyBoard.array2D[xL][yL],
+          const result = myPlayer.myShips.findIndex(
+            (obj) => obj.name === myBoard.array2D[xL][yL],
           );
 
-          if (enemyBoard.isShip(xL, yL)) {
-            enemyShips[result].hit();
+          if (myBoard.isShip(xL, yL)) {
+            myPlayer.myShips[result].hit();
 
             div.style.backgroundColor = "red";
 
-            console.log(enemyShips[result]);
+            const shipState = myPlayer.myShips[result].isSunk();
+
+            myPlayer.checkShips(shipState);
+
+            myPlayer.condition();
           }
         }
       }
