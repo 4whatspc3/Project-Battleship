@@ -1,5 +1,13 @@
 function showInfo(counter) {
-  const infoPlayer = document.querySelector(`.info-1`);
+  let infoContainer = document.querySelector(`.board-1 > div:first-of-type`);
+
+  let infoPlayer = document.querySelector(`.info-1`);
+
+  if (infoPlayer === null) {
+    infoPlayer = document.createElement("p");
+    infoPlayer.className = "info-1";
+    infoContainer.append(infoPlayer);
+  }
 
   switch (counter) {
     case 0 || undefined:
@@ -7,7 +15,7 @@ function showInfo(counter) {
 
       setTimeout(() => {
         infoPlayer.textContent = "Place your Carrier, it takes 5 squares";
-      }, 2000);
+      }, 1500);
       break;
     case 1:
       setTimeout(() => {

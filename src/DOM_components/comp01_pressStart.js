@@ -5,6 +5,8 @@ import showInfo from "./DOM_subcomponents/showInfo";
 import btnDirection from "./DOM_subcomponents/btnDirection";
 
 const pressStart = () => {
+  document.querySelector(".reset").disabled = true;
+
   const start = document.querySelector(".start");
 
   const infoGeneral = document.querySelector(".info-general p");
@@ -19,6 +21,8 @@ const pressStart = () => {
     btnDirection();
 
     document.querySelector(".start").disabled = true;
+
+    document.querySelector(".reset").disabled = false;
   });
 };
 
