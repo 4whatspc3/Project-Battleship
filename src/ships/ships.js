@@ -26,7 +26,9 @@ class ships {
 
     if (this.direction === "vertical") {
       while (size > 0) {
-        if (
+        if (coordX === undefined || coordY === undefined) {
+          return "Already being used";
+        } else if (
           board[coordX][coordY] === undefined ||
           board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`
         ) {
@@ -49,7 +51,9 @@ class ships {
       }
     } else {
       while (size > 0) {
-        if (
+        if (coordX === undefined || coordY === undefined) {
+          return "Already being used";
+        } else if (
           board[coordX] === undefined ||
           board[coordX][coordY] !== `x: ${coordX}, y: ${coordY}`
         ) {

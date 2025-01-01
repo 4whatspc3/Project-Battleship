@@ -39,10 +39,9 @@ const strategiaComputer = (playerTwo, computerBoard) => {
         patrolBoat.passCoordShip(computerBoard.array2D, x, y);
         playerTwo.myShips[4] = patrolBoat;
 
-        console.log(computerBoard.array2D);
         break;
       default:
-        console.log(computerBoard.array2D);
+        console.log("All enemy ships positioned");
     }
 
     if (JSON.stringify(computerBoard.array2D) !== JSON.stringify(boardCopy)) {

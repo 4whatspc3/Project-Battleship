@@ -16,8 +16,6 @@ const strategia = (playerOne, playerBoard, computerBoard) => {
 
       getShips(playerOne, turn, playerBoard.array2D, x, y);
 
-      console.log(playerOne.myShips);
-
       if (JSON.stringify(playerBoard.array2D) !== JSON.stringify(boardCopy)) {
         boardCopy = JSON.parse(JSON.stringify(playerBoard.array2D));
 
