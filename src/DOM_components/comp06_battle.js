@@ -11,7 +11,7 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
       if (x !== undefined || y !== undefined) {
         //////player 2 receive attack///////
         if (e.target.dataset.clicked === "false") {
-          e.target.style.backgroundColor = "grey";
+          e.target.className = "missed";
 
           e.target.dataset.clicked = "true";
 
@@ -22,7 +22,7 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
           if (enemyBoard.isShip(x, y)) {
             enemyPlayer.myShips[result].hit();
 
-            e.target.style.backgroundColor = "green";
+            e.target.className = "scored";
 
             const shipState = enemyPlayer.myShips[result].isSunk();
 
@@ -59,7 +59,7 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
           console.log(`X: ${xL}, Y: ${yL}, Index: ${num}`);
 
           if (div.dataset.clicked === "false") {
-            div.style.backgroundColor = "grey";
+            div.className = "missed";
 
             div.dataset.clicked = "true";
 
@@ -70,7 +70,7 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
             if (myBoard.isShip(xL, yL)) {
               myPlayer.myShips[result].hit();
 
-              div.style.backgroundColor = "red";
+              div.className = "damaged";
 
               const shipState = myPlayer.myShips[result].isSunk();
 
