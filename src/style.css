@@ -51,6 +51,10 @@ header > p {
   justify-content: center;
 }
 
+.info-general > p {
+  font-size: 38px;
+}
+
 .game {
   height: 400px;
   display: flex;
