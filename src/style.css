@@ -16,6 +16,11 @@ body {
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 }
 
+body {
+  background-image: url("./images/vecteezy_panorama-sunset-illustration-blue-sky-in-background-summer_.jpg");
+  background-position: center;
+}
+
 .container {
   display: flex;
   flex-direction: column;
