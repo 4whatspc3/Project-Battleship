@@ -1,7 +1,5 @@
 const btnDirection = () => {
-  const directionContainer = document.querySelector(
-    ".board-1 > div:first-of-type",
-  );
+  const directionContainer = document.querySelector(".info-playerOne");
 
   const button = document.createElement("button");
 

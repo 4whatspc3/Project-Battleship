@@ -1,7 +1,7 @@
 import ships from "../ships/ships";
 
 const getShips = (playerOne, counter, playerBoard, x, y) => {
-  const btn = document.querySelector(".board-1 button");
+  const btn = document.querySelector(".info-playerOne button");
 
   switch (counter) {
     case 0:

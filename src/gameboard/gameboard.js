@@ -18,7 +18,7 @@ class gameboard {
   }
 
   boardDom(num) {
-    const grid = document.querySelector(`.board-${num} > div:last-of-type`);
+    const grid = document.querySelector(`.board-${num} > div`);
 
     for (let i = 0; i < 10; i++) {
       const x = document.createElement("div");
