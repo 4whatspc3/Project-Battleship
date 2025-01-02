@@ -1,5 +1,5 @@
 function showInfo(counter) {
-  let infoContainer = document.querySelector(`.board-1 > div:first-of-type`);
+  let infoContainer = document.querySelector(`.info-playerOne`);
 
   let infoPlayer = document.querySelector(`.info-1`);
 

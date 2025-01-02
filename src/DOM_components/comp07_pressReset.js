@@ -22,6 +22,9 @@ const pressReset = () => {
 
     const cleanGrid = document.querySelectorAll(`[data-x]`);
     cleanGrid.forEach((column) => column.remove());
+
+    const borders = document.querySelectorAll(".bigBorder");
+    borders.forEach((board) => board.classList.remove("bigBorder"));
   });
 };
 
