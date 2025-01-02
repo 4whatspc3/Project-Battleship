@@ -26,7 +26,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 800px;
+  height: 100%;
 }
 
 header {
@@ -193,4 +193,12 @@ button:disabled {
 button:hover {
   background-color: #2a7a96;
   color: #dddddd;
+}
+
+footer {
+  font-size: 16px;
+  padding-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
