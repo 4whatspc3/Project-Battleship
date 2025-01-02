@@ -38,52 +38,52 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
               enemyBoard.changeBoardState(true);
             }
           }
-        }
 
-        /////player 1 Receive attack//////////
-        const divs = document.querySelectorAll(".board-1 [data-y]");
+          /////player 1 Receive attack//////////
+          const divs = document.querySelectorAll(".board-1 [data-y]");
 
-        let xL, yL, num;
+          let xL, yL, num;
 
-        do {
-          xL = getRandomInt(10);
-          yL = getRandomInt(10);
-          num = xL * 10 + yL;
-        } while (myBoard.selectedCoords.has(num));
+          do {
+            xL = getRandomInt(10);
+            yL = getRandomInt(10);
+            num = xL * 10 + yL;
+          } while (myBoard.selectedCoords.has(num));
 
-        const div = divs[num];
+          const div = divs[num];
 
-        if (div) {
-          myBoard.selectedCoords.add(num);
+          if (div) {
+            myBoard.selectedCoords.add(num);
 
-          console.log(`X: ${xL}, Y: ${yL}, Index: ${num}`);
+            console.log(`X: ${xL}, Y: ${yL}, Index: ${num}`);
 
-          if (div.dataset.clicked === "false") {
-            div.className = "missed";
+            if (div.dataset.clicked === "false") {
+              div.className = "missed";
 
-            div.dataset.clicked = "true";
+              div.dataset.clicked = "true";
 
-            const result = myPlayer.myShips.findIndex(
-              (obj) => obj.name === myBoard.array2D[xL][yL],
-            );
+              const result = myPlayer.myShips.findIndex(
+                (obj) => obj.name === myBoard.array2D[xL][yL],
+              );
 
-            if (myBoard.isShip(xL, yL)) {
-              myPlayer.myShips[result].hit();
+              if (myBoard.isShip(xL, yL)) {
+                myPlayer.myShips[result].hit();
 
-              div.className = "damaged";
+                div.className = "damaged";
 
-              const shipState = myPlayer.myShips[result].isSunk();
+                const shipState = myPlayer.myShips[result].isSunk();
 
-              myPlayer.checkShips(shipState);
+                myPlayer.checkShips(shipState);
 
-              myPlayer.condition();
+                myPlayer.condition();
 
-              if (myPlayer.status === "lost") {
-                infoGeneral(2);
+                if (myPlayer.status === "lost") {
+                  infoGeneral(2);
 
-                myBoard.changeBoardState(true);
+                  myBoard.changeBoardState(true);
 
-                enemyBoard.changeBoardState(true);
+                  enemyBoard.changeBoardState(true);
+                }
               }
             }
           }
