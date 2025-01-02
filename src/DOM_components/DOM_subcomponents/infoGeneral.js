@@ -10,7 +10,8 @@ function infoGeneral(num) {
   }
 
   setInterval(function () {
-    infoGeneral.style.color = infoGeneral.style.color == "red" ? "blue" : "red";
+    infoGeneral.style.color =
+      infoGeneral.style.color == "white" ? "blue" : "white";
   }, 1000);
 }
 

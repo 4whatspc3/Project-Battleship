@@ -132,11 +132,7 @@ header > p {
 }
 
 [data-y]:hover {
-  background-color: hsl(0, 0%, 70%);
-}
-
-.shipPlaced {
-  background-color: white;
+  background-color: #2a7a96;
 }
 
 .shipPlaced::before {
@@ -145,11 +141,7 @@ header > p {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: orange;
-}
-
-.missed {
-  background-color: white;
+  background-color: #2a7a96;
 }
 
 .missed::before {
@@ -158,10 +150,6 @@ header > p {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: grey;
-}
-
-.scored {
   background-color: white;
 }
 
@@ -171,11 +159,7 @@ header > p {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: lightgreen;
-}
-
-.damaged {
-  background-color: white;
+  background-color: #d58569;
 }
 
 .damaged::before {
@@ -188,7 +172,7 @@ header > p {
 }
 
 button {
-  background-color: #ffffff;
+  background-color: transparent;
   border: 1px solid #222222;
   border-radius: 8px;
   color: #222222;
@@ -207,6 +191,6 @@ button:disabled {
 }
 
 button:hover {
-  background-color: #000000;
+  background-color: #2a7a96;
   color: #dddddd;
 }

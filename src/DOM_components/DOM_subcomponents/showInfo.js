@@ -15,7 +15,7 @@ function showInfo(counter) {
 
       setTimeout(() => {
         infoPlayer.textContent = "Place your Carrier, it takes 5 squares";
-      }, 1500);
+      }, 1000);
       break;
     case 1:
       setTimeout(() => {
@@ -44,8 +44,9 @@ function showInfo(counter) {
   }
 
   setInterval(function () {
-    infoPlayer.style.color = infoPlayer.style.color == "red" ? "blue" : "red";
-  }, 1000);
+    infoPlayer.style.color =
+      infoPlayer.style.color == "white" ? "blue" : "white";
+  }, 1500);
 }
 
 export default showInfo;
