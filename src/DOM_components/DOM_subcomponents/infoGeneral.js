@@ -6,13 +6,8 @@ function infoGeneral(num) {
   }
 
   if (num === 2) {
-    infoGeneral.textContent = "Player 2 Won";
+    infoGeneral.textContent = "Player 2 Won!";
   }
-
-  setInterval(function () {
-    infoGeneral.style.color =
-      infoGeneral.style.color == "white" ? "blue" : "white";
-  }, 1000);
 }
 
 export default infoGeneral;

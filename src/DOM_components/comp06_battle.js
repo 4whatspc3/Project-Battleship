@@ -36,6 +36,9 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
               myBoard.changeBoardState(true);
 
               enemyBoard.changeBoardState(true);
+
+              const infoPlayer = document.querySelector(`.info-1`);
+              infoPlayer.remove();
             }
           }
 
@@ -83,6 +86,9 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
                   myBoard.changeBoardState(true);
 
                   enemyBoard.changeBoardState(true);
+
+                  const infoPlayer = document.querySelector(`.info-1`);
+                  infoPlayer.remove();
                 }
               }
             }

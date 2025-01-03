@@ -10,9 +10,6 @@ const pressReset = () => {
   reset.addEventListener("click", () => {
     infoGeneral.textContent = "Welcome to classic battleship";
 
-    const infoPlayer = document.querySelector(`.info-1`);
-    infoPlayer.remove();
-
     start.disabled = false;
 
     reset.disabled = true;
