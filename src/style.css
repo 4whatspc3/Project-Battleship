@@ -26,7 +26,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  height: 100%;
+  min-height: 100%;
 }
 
 header {
@@ -42,7 +42,7 @@ header > p {
 }
 
 .content {
-  height: 600px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -73,9 +73,11 @@ header > p {
 }
 
 .game {
-  height: 400px;
+  height: 100%;
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 16px;
 }
 
 .start-reset {
@@ -99,11 +101,11 @@ header > p {
 }
 
 .board-1.bigBorder {
-  border-right: 6px solid grey;
+  border-right: 6px solid rgb(255, 255, 255);
 }
 
 .board-2.bigBorder {
-  border-left: 6px solid grey;
+  border-left: 6px solid rgb(255, 255, 255);
 }
 
 .board-1 > div,
