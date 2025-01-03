@@ -1,0 +1,23 @@
+.info-general {
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-general > p {
+  font-size: 38px;
+}
+
+.info-playerOne {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.info-playerOne > p {
+  font-size: 20px;
+}
