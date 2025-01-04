@@ -13,32 +13,24 @@ const strategiaComputer = (playerTwo, boardTwo) => {
     switch (turn) {
       case 0:
         const carrier = new ships("carrier", 5, direction);
-        carrier.passCoordShip(boardTwo.array2D, x, y);
-        playerTwo.myShips[0] = carrier;
+        passCoords(carrier, 0, x, y);
         break;
       case 1:
         const battleship = new ships("battleship", 4, direction);
-        battleship.passCoordShip(boardTwo.array2D, x, y);
-        playerTwo.myShips[1] = battleship;
-
+        passCoords(battleship, 1, x, y);
         break;
       case 2:
         const destroyer = new ships("destroyer", 3, direction);
-        destroyer.passCoordShip(boardTwo.array2D, x, y);
-        playerTwo.myShips[2] = destroyer;
+        passCoords(destroyer, 2, x, y);
 
         break;
       case 3:
         const submarine = new ships("submarine", 3, direction);
-        submarine.passCoordShip(boardTwo.array2D, x, y);
-        playerTwo.myShips[3] = submarine;
-
+        passCoords(submarine, 3, x, y);
         break;
       case 4:
         const patrolBoat = new ships("patrol boat", 2, direction);
-        patrolBoat.passCoordShip(boardTwo.array2D, x, y);
-        playerTwo.myShips[4] = patrolBoat;
-
+        passCoords(patrolBoat, 4, x, y);
         playerTwo.myBoard = boardTwo;
         break;
       default:
@@ -49,6 +41,12 @@ const strategiaComputer = (playerTwo, boardTwo) => {
       boardCopy = JSON.parse(JSON.stringify(boardTwo.array2D));
       turn++;
     }
+  }
+
+  function passCoords(shipName, counter, x, y) {
+    shipName.passCoordShip(boardTwo.array2D, x, y);
+
+    playerTwo.myShips[counter] = shipName;
   }
 };
 
