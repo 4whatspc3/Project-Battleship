@@ -5,9 +5,9 @@ import showInfo from "./DOM_subcomponents/showInfo";
 import btnDirection from "./DOM_subcomponents/btnDirection";
 
 const pressStart = () => {
-  const board1 = document.querySelector(".board-1");
+  const boardOne = document.querySelector(".board-1");
 
-  const board2 = document.querySelector(".board-2");
+  const boardTwo = document.querySelector(".board-2");
 
   document.querySelector(".reset").disabled = true;
 
@@ -28,9 +28,9 @@ const pressStart = () => {
 
     document.querySelector(".reset").disabled = false;
 
-    board1.className += " bigBorder";
+    boardOne.className += " bigBorder";
 
-    board2.className += " bigBorder";
+    boardTwo.className += " bigBorder";
   });
 };
 

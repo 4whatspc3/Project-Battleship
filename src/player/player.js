@@ -19,6 +19,14 @@ class player {
       return (this.status = "lost");
     }
   }
+
+  findMyShip(x, y) {
+    const result = this.myShips.findIndex(
+      (obj) => obj.name === this.myBoard.array2D[x][y],
+    );
+
+    return this.myShips[result];
+  }
 }
 
 export default player;

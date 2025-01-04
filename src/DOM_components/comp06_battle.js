@@ -1,6 +1,6 @@
 import infoGeneral from "./DOM_subcomponents/infoGeneral";
 
-const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
+const battle = (playerOne, boardOne, playerTwo, boardTwo) => {
   const squareCoords = document.querySelectorAll(".board-2 [data-x]");
 
   squareCoords.forEach((square) => {
@@ -15,27 +15,25 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
 
           e.target.dataset.clicked = "true";
 
-          const result = enemyPlayer.myShips.findIndex(
-            (obj) => obj.name === enemyBoard.array2D[x][y],
-          );
+          const enemyShipAtIndex = playerTwo.findMyShip(x, y);
 
-          if (enemyBoard.isShip(x, y)) {
-            enemyPlayer.myShips[result].hit();
+          if (boardTwo.isShip(x, y)) {
+            enemyShipAtIndex.hit();
 
             e.target.className = "scored";
 
-            const shipState = enemyPlayer.myShips[result].isSunk();
+            const shipState = enemyShipAtIndex.isSunk();
 
-            enemyPlayer.checkShips(shipState);
+            playerTwo.checkShips(shipState);
 
-            enemyPlayer.condition();
+            playerTwo.condition();
 
-            if (enemyPlayer.status === "lost") {
+            if (playerTwo.status === "lost") {
               infoGeneral(1);
 
-              myBoard.changeBoardState(true);
+              boardOne.changeBoardState(true);
 
-              enemyBoard.changeBoardState(true);
+              boardTwo.changeBoardState(true);
 
               const infoPlayer = document.querySelector(`.info-1`);
               infoPlayer.remove();
@@ -51,12 +49,12 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
             xL = getRandomInt(10);
             yL = getRandomInt(10);
             num = xL * 10 + yL;
-          } while (myBoard.selectedCoords.has(num));
+          } while (boardOne.selectedCoords.has(num));
 
           const div = divs[num];
 
           if (div) {
-            myBoard.selectedCoords.add(num);
+            boardOne.selectedCoords.add(num);
 
             console.log(`X: ${xL}, Y: ${yL}, Index: ${num}`);
 
@@ -65,27 +63,25 @@ const battle = (myPlayer, myBoard, enemyPlayer, enemyBoard) => {
 
               div.dataset.clicked = "true";
 
-              const result = myPlayer.myShips.findIndex(
-                (obj) => obj.name === myBoard.array2D[xL][yL],
-              );
+              const allyShipAtIndex = playerOne.findMyShip(xL, yL);
 
-              if (myBoard.isShip(xL, yL)) {
-                myPlayer.myShips[result].hit();
+              if (boardOne.isShip(xL, yL)) {
+                allyShipAtIndex.hit();
 
                 div.className = "damaged";
 
-                const shipState = myPlayer.myShips[result].isSunk();
+                const shipState = allyShipAtIndex.isSunk();
 
-                myPlayer.checkShips(shipState);
+                playerOne.checkShips(shipState);
 
-                myPlayer.condition();
+                playerOne.condition();
 
-                if (myPlayer.status === "lost") {
+                if (playerOne.status === "lost") {
                   infoGeneral(2);
 
-                  myBoard.changeBoardState(true);
+                  boardOne.changeBoardState(true);
 
-                  enemyBoard.changeBoardState(true);
+                  boardTwo.changeBoardState(true);
 
                   const infoPlayer = document.querySelector(`.info-1`);
                   infoPlayer.remove();

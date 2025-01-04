@@ -1,7 +1,7 @@
 import ships from "../ships/ships";
 
-const strategiaComputer = (playerTwo, computerBoard) => {
-  let boardCopy = JSON.parse(JSON.stringify(computerBoard.array2D));
+const strategiaComputer = (playerTwo, boardTwo) => {
+  let boardCopy = JSON.parse(JSON.stringify(boardTwo.array2D));
 
   let turn = 0;
 
@@ -13,39 +13,40 @@ const strategiaComputer = (playerTwo, computerBoard) => {
     switch (turn) {
       case 0:
         const carrier = new ships("carrier", 5, direction);
-        carrier.passCoordShip(computerBoard.array2D, x, y);
+        carrier.passCoordShip(boardTwo.array2D, x, y);
         playerTwo.myShips[0] = carrier;
         break;
       case 1:
         const battleship = new ships("battleship", 4, direction);
-        battleship.passCoordShip(computerBoard.array2D, x, y);
+        battleship.passCoordShip(boardTwo.array2D, x, y);
         playerTwo.myShips[1] = battleship;
 
         break;
       case 2:
         const destroyer = new ships("destroyer", 3, direction);
-        destroyer.passCoordShip(computerBoard.array2D, x, y);
+        destroyer.passCoordShip(boardTwo.array2D, x, y);
         playerTwo.myShips[2] = destroyer;
 
         break;
       case 3:
         const submarine = new ships("submarine", 3, direction);
-        submarine.passCoordShip(computerBoard.array2D, x, y);
+        submarine.passCoordShip(boardTwo.array2D, x, y);
         playerTwo.myShips[3] = submarine;
 
         break;
       case 4:
         const patrolBoat = new ships("patrol boat", 2, direction);
-        patrolBoat.passCoordShip(computerBoard.array2D, x, y);
+        patrolBoat.passCoordShip(boardTwo.array2D, x, y);
         playerTwo.myShips[4] = patrolBoat;
 
+        playerTwo.myBoard = boardTwo;
         break;
       default:
         console.log("All enemy ships positioned");
     }
 
-    if (JSON.stringify(computerBoard.array2D) !== JSON.stringify(boardCopy)) {
-      boardCopy = JSON.parse(JSON.stringify(computerBoard.array2D));
+    if (JSON.stringify(boardTwo.array2D) !== JSON.stringify(boardCopy)) {
+      boardCopy = JSON.parse(JSON.stringify(boardTwo.array2D));
       turn++;
     }
   }
