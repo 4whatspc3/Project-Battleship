@@ -18,26 +18,7 @@ const battle = (playerOne, boardOne, playerTwo, boardTwo) => {
           const enemyShipAtIndex = playerTwo.findMyShip(x, y);
 
           if (boardTwo.isShip(x, y)) {
-            enemyShipAtIndex.hit();
-
-            e.target.className = "scored";
-
-            const shipState = enemyShipAtIndex.isSunk();
-
-            playerTwo.checkShips(shipState);
-
-            playerTwo.condition();
-
-            if (playerTwo.status === "lost") {
-              infoGeneral(1);
-
-              boardOne.changeBoardState(true);
-
-              boardTwo.changeBoardState(true);
-
-              const infoPlayer = document.querySelector(`.info-1`);
-              infoPlayer.remove();
-            }
+            thereWasAShip(enemyShipAtIndex, playerTwo, e, div);
           }
 
           /////player 1 Receive attack//////////
@@ -66,26 +47,7 @@ const battle = (playerOne, boardOne, playerTwo, boardTwo) => {
               const allyShipAtIndex = playerOne.findMyShip(xL, yL);
 
               if (boardOne.isShip(xL, yL)) {
-                allyShipAtIndex.hit();
-
-                div.className = "damaged";
-
-                const shipState = allyShipAtIndex.isSunk();
-
-                playerOne.checkShips(shipState);
-
-                playerOne.condition();
-
-                if (playerOne.status === "lost") {
-                  infoGeneral(2);
-
-                  boardOne.changeBoardState(true);
-
-                  boardTwo.changeBoardState(true);
-
-                  const infoPlayer = document.querySelector(`.info-1`);
-                  infoPlayer.remove();
-                }
+                thereWasAShip(allyShipAtIndex, playerOne, e, div);
               }
             }
           }
@@ -97,6 +59,38 @@ const battle = (playerOne, boardOne, playerTwo, boardTwo) => {
       }
     });
   });
+
+  function thereWasAShip(shipAtIndex, playerNumber, e, div) {
+    shipAtIndex.hit();
+
+    console.log(playerNumber);
+    if (playerNumber.name === "Player 1") {
+      div.className = "damaged";
+    } else {
+      e.target.className = "scored";
+    }
+
+    const shipState = shipAtIndex.isSunk();
+
+    playerNumber.checkShips(shipState);
+
+    playerNumber.condition();
+
+    if (playerNumber.status === "lost") {
+      if (playerNumber.name === "Player 1") {
+        infoGeneral(2);
+      } else {
+        infoGeneral(1);
+      }
+
+      boardOne.changeBoardState(true);
+
+      boardTwo.changeBoardState(true);
+
+      const infoPlayer = document.querySelector(`.info-1`);
+      infoPlayer.remove();
+    }
+  }
 };
 
 export default battle;
