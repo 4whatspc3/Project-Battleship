@@ -37,8 +37,6 @@ const battle = (playerOne, boardOne, playerTwo, boardTwo) => {
           if (div) {
             boardOne.selectedCoords.add(num);
 
-            console.log(`X: ${xL}, Y: ${yL}, Index: ${num}`);
-
             if (div.dataset.clicked === "false") {
               div.className = "missed";
 
@@ -63,7 +61,6 @@ const battle = (playerOne, boardOne, playerTwo, boardTwo) => {
   function thereWasAShip(shipAtIndex, playerNumber, e, div) {
     shipAtIndex.hit();
 
-    console.log(playerNumber);
     if (playerNumber.name === "Player 1") {
       div.className = "damaged";
     } else {

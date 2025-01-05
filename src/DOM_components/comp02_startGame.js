@@ -9,7 +9,6 @@ import strategiaComputer from "./comp03_stratPC";
 import battle from "./comp06_battle";
 
 const startGame = () => {
-  console.log("I'm working right now");
   const player1 = new player("Human", "Player 1");
 
   const board1 = new gameboard();
